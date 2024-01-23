@@ -10,6 +10,7 @@ import './style.css'
   let photosList = document.getElementById("photos-list");
   let onionskins = document.getElementById("onionskins");
   let countdown = document.getElementById("countdown");
+  let secondsInput = document.getElementById("seconds-input");
 
   startbutton.onclick = (e) => {takePicture(); e.preventDefault();};
 
@@ -43,11 +44,13 @@ const sleep = milliseconds => new Promise(r => setTimeout(r, milliseconds));
 
 async function takePicture() {
 
-    for (let i = 20; i >= 0; i--){
-      countdown.innerText = i+"";
-      await sleep(1000);
+    if (secondsInput.value != "0"){
+      for (let i = secondsInput.value; i >= 0; i--){
+        countdown.innerText = i+"";
+        await sleep(1000);
+      }
     }
-
+    
     const context = canvas.getContext("2d");
 
     if (width && height) {
