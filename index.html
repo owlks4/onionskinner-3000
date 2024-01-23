@@ -4,15 +4,20 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
+    <title>Onionskinner 3000</title>
   </head>
   <body>
     <div id="app">
+      <div id="photos-list">
+      </div>
       <video id="video">Video unavailable</video>
-      <button id="startbutton">Take photo</button>
-      <canvas id="canvas"> </canvas>
-      <div class="output">
-        <img id="photo" alt="The screen capture will appear in this box." />
+      <div id="onionskins"></div>
+      <div id="overlay">
+        <div id="countdown">
+         20
+        </div>
+        <button id="startbutton">Take photo</button>
+        <canvas id="canvas"> </canvas>
       </div>
     </div>
     <script type="module" src="/main.js"></script>
