@@ -105,3 +105,10 @@ async function takePicture() {
     document.getElementById(originalImg.src).remove();
     recalculateOnionSkinOpacities();
   }
+
+window.addEventListener("beforeunload", function (e) {
+    var confirmationMessage = "Are you sure you want to leave?\nMake sure you've right clicked and saved any images you want to keep before leaving.";
+
+    (e || window.event).returnValue = confirmationMessage;
+    return confirmationMessage;
+});
