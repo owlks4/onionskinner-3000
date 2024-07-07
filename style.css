@@ -15,6 +15,10 @@
   overflow:hidden;
 }
 
+body {
+  overflow:hidden;
+}
+
 a {
   font-weight: 500;
   color: #646cff;
@@ -28,6 +32,7 @@ a:hover {
   display:flex;
   flex-direction: row;
   width:100%;
+  overflow:hidden;
 }
 
 #overlay {
@@ -35,6 +40,7 @@ a:hover {
   width:100vw;
   position:absolute;
   text-align:center;
+  overflow:hidden;
 }
 
 #countdown {
@@ -52,17 +58,20 @@ a:hover {
   visibility:hidden;
 }
 
-#startbutton {
+#start-button {
   font-size:3em;
-  padding:1em;
+  padding:0.8em;
   background-color:rgba(70,70,70,0.5);
   border-radius:0.2em;
   cursor:pointer;
   z-index: 5;
-  position:relative;
+  position:absolute;
+  bottom:0;
+  left:50%;
+  transform:translate(-50%,0);
 }
 
-#startbutton:hover {
+#start-button:hover {
   filter:brightness(120%);
 }
 
@@ -76,8 +85,7 @@ body {
   z-index: 4;
   display:flex;
   flex-direction: column;
-  overflow-y:scroll;
-  overflow-x:hidden;
+  overflow: hidden scroll;
   width:12%;
   height:100vh;
   margin-left:3em;
@@ -96,17 +104,20 @@ h1 {
 }
 
 #video {
-  height:90%;
+  height:100%;
   width:100%;
   position:absolute;
 }
 
 #onionskins {
   z-index: 1;
-  height:90%;
+  height:100vh;
   width:100%;
   position:absolute;
   text-align:center;
+  display:flex;
+  flex-direction:row;
+  justify-content: center;
 }
 
 label {
@@ -121,3 +132,10 @@ input[type=checkbox] {
   margin-left:1em;
 }
 
+#div-for-countdown-input {
+  width:100%;
+}
+
+#placeholder-div-on-other-side-of-countdown-input {
+  width:100%;
+}

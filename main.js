@@ -1,16 +1,26 @@
 import './style.css'
 
-const width = 1920;
+let width = 1920;
 let height = 0;
 let streaming = false;
 
 let video = document.getElementById("video");
 let canvas = document.getElementById("canvas");
-let startbutton = document.getElementById("startbutton");
+let startbutton = document.getElementById("start-button");
 let photosList = document.getElementById("photos-list");
 let onionskins = document.getElementById("onionskins");
 let countdown = document.getElementById("countdown");
 let secondsInput = document.getElementById("seconds-input");
+
+if (window.innerWidth < window.innerHeight){
+  document.body.style = "font-size:0.75em";
+  countdown.style = "font-size:10em; margin-top:2em;";
+  document.getElementById("countdown-input-container").style = "width:100%; text-align:center;";
+  startbutton.style = "padding:0.5em 0.25em;";
+  document.getElementById("app").style = "flex-direction:column;"
+  photosList.style = "flex-direction:row; overflow:scroll hidden; height:unset; width:100vw; height:25vh; padding-left:3em; margin:0; box-sizing:border-box;";
+  onionskins.style = "flex-direction:column;";
+}
 
 startbutton.onclick = (e) => {takePicture(); e.preventDefault();};
 
@@ -26,6 +36,7 @@ navigator.mediaDevices
 
 video.oncanplay = (e) => {
   if (!streaming) {
+    width = video.videoWidth;
     height = video.videoHeight / (video.videoWidth / width);
 
     if (isNaN(height)) {
@@ -61,12 +72,23 @@ async function takePicture() {
     const data = canvas.toDataURL("image/png");
 
     let newPhotoDiv = document.createElement("div");
-    newPhotoDiv.style = "display:block; width:100%;"
+
+    if (window.innerWidth < window.innerHeight){ //mobile
+      newPhotoDiv.style = "display:block; height:100%;"
+    } else {  //computer
+      newPhotoDiv.style = "display:block; width:100%;"
+    }
+
     let newPhoto = document.createElement("img");
     newPhotoDiv.appendChild(newPhoto);
 
     newPhoto.setAttribute("src", data);
     newPhoto.setAttribute("class", "prospectivePhoto");
+
+    if (window.innerWidth < window.innerHeight){ 
+      newPhoto.style = "height:50%; width:inherit;"
+    }
+
     let newCheckBox = document.createElement("input");
     newCheckBox.setAttribute("type","checkbox");
     newCheckBox.id = "cb-"+data;
@@ -100,7 +122,11 @@ function addOnionSkin(originalImg){
 function recalculateOnionSkinOpacities(){
   let opacity = 1/(onionskins.childElementCount + 1);
   for (const child of onionskins.children) { //updating all onionskins to have the new opacity so that they all remain at an equal slice of the whole
-    child.style = "height:100%;position:absolute;transform:translate(-50%,0%);opacity:"+opacity;
+    if (window.innerWidth < window.innerHeight){
+      child.style = "max-width:100%;position:absolute;opacity:"+opacity;  //mobile
+    } else {
+      child.style = "height:100%;position:absolute;opacity:"+opacity; //computer
+    }
   }
 }
 

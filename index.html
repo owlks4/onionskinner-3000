@@ -14,13 +14,20 @@
       <div id="onionskins"></div>
       <div id="overlay">
         <div id="countdown"></div>
-        <button id="startbutton">Take photo</button>
         <canvas id="canvas"> </canvas>
       </div>
-      <div style="position:absolute;right:29%;bottom:2.5%">
-        <label>Countdown time (seconds)</label>
-        <br/>
-        <input type="number" min=0 id="seconds-input" style="font-size:2em;width:3em;position:relative;z-index:6;">
+      <div style="position:absolute; bottom:0; display:flex; width:100vw; justify-content: space-around;">
+        <div style="width:100%;"></div>
+        <div  style="width:100%;">
+          <button id="start-button">Take photo</button>
+        </div>        
+        <div id="countdown-input-container" style="width:100%;">
+          <div style="text-align:center;">
+            <label>Countdown time (seconds)</label>
+            <br/>
+            <input type="number" min=0 id="seconds-input" style="font-size:2em;width:3em;position:relative;z-index:6;margin-top:0.25em;">
+          </div>
+        </div>
       </div>
     </div>
     <script type="module" src="/main.js"></script>
