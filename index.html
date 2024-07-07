@@ -5,8 +5,8 @@
     <link rel="icon" type="image/svg+xml" href="https://owlks4.github.io/onionskinner-3000/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Onionskinner 3000</title>
-    <script type="module" crossorigin src="https://owlks4.github.io/onionskinner-3000/assets/index-1DTvaqAo.js"></script>
-    <link rel="stylesheet" crossorigin href="https://owlks4.github.io/onionskinner-3000/assets/index-CGU-Do0b.css">
+    <script type="module" crossorigin src="https://owlks4.github.io/onionskinner-3000/assets/index-_wY6_sn7.js"></script>
+    <link rel="stylesheet" crossorigin href="https://owlks4.github.io/onionskinner-3000/assets/index-xKkQkStk.css">
   </head>
   <body>
     <div id="app">
@@ -16,13 +16,18 @@
       <div id="onionskins"></div>
       <div id="overlay">
         <div id="countdown"></div>
-        <button id="startbutton">Take photo</button>
         <canvas id="canvas"> </canvas>
       </div>
-      <div style="position:absolute;right:29%;bottom:2.5%">
-        <label>Countdown time (seconds)</label>
-        <br/>
-        <input type="number" min=0 id="seconds-input" style="font-size:2em;width:3em;position:relative;z-index:6;">
+      <div style="position:absolute; bottom:0; display:flex; width:100vw; justify-content: space-around;">
+        <div style="width:100%;"></div>
+        <div  style="width:100%;">
+          <button id="start-button">Take photo</button>
+        </div>        
+        <div id="countdown-input-container" style="width:100%;">
+          <label>Countdown time (seconds)</label>
+          <br/>
+          <input type="number" min=0 id="seconds-input" style="font-size:2em;width:3em;position:relative;z-index:6;">
+        </div>
       </div>
     </div>
   </body>
